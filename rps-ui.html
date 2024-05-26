@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button onclick ="Rock()">ROCK</button>
+        <button onclick ="Paper()">PAPER</button>
+        <button onclick ="Scissors()">SCISSORS</button>
+    </div>
+   
+    <script>
+        let userinput;
+        let humanscore=0;
+        let computerscore=0;
+        console.log("Hello idiots play this simple Game");
+
+     function Rock(){
+        userinput="rock"
+        playGame()
+     }
+     function Paper(){
+        userinput="Paper"
+        playGame()
+     }
+     function Scissors(){
+        userinput="Scissors"
+        playGame()
+     }
+       
+     function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+       
+    function getCompAction()
+    {
+        const compNumber=getRandomInt(1,3)
+        if(compNumber===1)return "rock"
+        if(compNumber===2)return "paper"
+        if(compNumber===3)return "scissors"
+
+    }
+     function playGame() {
+
+      const compAction = getCompAction();
+      console.log(`Computer chose: ${compAction}`);
+      console.log(`You chose: ${userinput}`);
+
+
+   
+
+console.log(userinput);
+
+let useraction= userinput;
+console.log(useraction);
+
+ function playRound(user,comp){
+
+      if(comp===user) return "draw";
+      else if((comp==="rock" && user==="paper") ||
+      (comp==="paper" && user==="rock") ||
+      (comp==="paper" && user==="rock") )
+      return "Win"
+      else
+      return "lose"
+}
+
+
+
+
+
+const result=playRound(useraction,compAction)
+console.log(result);
+
+if (result==="Win"){
+
+console.log("You Win the Round");
+humanscore++;
+}
+else if(result==="lose"){
+console.log("You lose the round");
+computerscore++;
+}
+else{
+console.log("Draw");
+}
+
+console.log(`Score: Human ${humanscore} - Computer ${computerscore}`);
+
+if(humanscore+computerscore>4){
+
+if(humanscore >computerscore)
+console.log("You win the Match");
+else
+console.log("You lose the Match idiot");
+
+}
+     }
+
+    </script>
+</body>
+</html>
